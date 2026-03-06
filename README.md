@@ -86,16 +86,18 @@ python main.py
 
 ## Docker 部署
 
+### 从 ghcr.io 拉取镜像（推荐）
+
 ```bash
-# 构建镜像
-docker build -t golden .
+# 拉取最新镜像
+docker pull ghcr.io/livetune/golden:latest
 
 # 运行（挂载配置文件）
 docker run -d --name golden \
   --restart=always \
   -v ./config/config.yaml:/app/config/config.yaml \
   -v ./logs:/app/logs \
-  golden
+  ghcr.io/livetune/golden:latest
 ```
 
 也可以通过环境变量传递邮件配置（无需挂载配置文件）：
@@ -106,6 +108,20 @@ docker run -d --name golden \
   -e EMAIL_SENDER=your_qq@qq.com \
   -e EMAIL_PASSWORD=your_auth_code \
   -e EMAIL_RECEIVERS=target@qq.com \
+  ghcr.io/livetune/golden:latest
+```
+
+### 本地构建镜像
+
+```bash
+# 构建镜像
+docker build -t golden .
+
+# 运行
+docker run -d --name golden \
+  --restart=always \
+  -v ./config/config.yaml:/app/config/config.yaml \
+  -v ./logs:/app/logs \
   golden
 ```
 
