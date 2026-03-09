@@ -4,6 +4,9 @@ __pycache__/
 .github/
 .vscode/
 .idea/
-logs/*.log
-config/config.yaml
 .codebuddy/
+logs/
+data/
+tests/
+*.md
+get-docker.sh
