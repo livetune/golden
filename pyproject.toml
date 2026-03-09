@@ -1,0 +1,10 @@
+[project]
+name = "golden-monitor"
+version = "1.0.0"
+description = "黄金价格监控系统 - 上海黄金交易所 Au9999 实时价格监控与通知"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.28.0",
+    "pyyaml>=6.0",
+    "schedule>=1.2.0",
+]
