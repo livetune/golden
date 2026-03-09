@@ -3,7 +3,6 @@
 支持数据源: 东方财富
 """
 import requests
-import pandas as pd
 import logging
 import gc
 import weakref
@@ -253,32 +252,6 @@ class DataFetcher:
                     'price': None
                 }
         return results
-    
-    def get_history_dataframe(self, periods: int = 100) -> pd.DataFrame:
-        """获取历史价格DataFrame用于技术指标计算"""
-        if not self._price_history:
-            return pd.DataFrame()
-        
-        # 从deque中获取最近的数据
-        history_list = list(self._price_history)
-        data = history_list[-periods:] if len(history_list) > periods else history_list
-        
-        df = pd.DataFrame([
-            {
-                'timestamp': p.timestamp,
-                'price': p.price,
-                'open': p.open_price,
-                'high': p.high,
-                'low': p.low,
-                'close': p.price,
-                'change': p.change,
-                'change_percent': p.change_percent,
-                'source': p.source
-            }
-            for p in data
-        ])
-        df.set_index('timestamp', inplace=True)
-        return df
     
     def get_price_history(self) -> List[GoldPrice]:
         """获取价格历史记录"""
