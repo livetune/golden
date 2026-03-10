@@ -91,6 +91,13 @@ def load_config() -> dict:
     if os.environ.get('EMAIL_RECEIVERS'):
         email_cfg['receivers'] = [r.strip() for r in os.environ['EMAIL_RECEIVERS'].split(',')]
     
+    # 环境变量覆盖算法配置
+    algo_cfg = config.setdefault('algorithm', {})
+    if os.environ.get('THRESHOLD'):
+        algo_cfg['threshold'] = float(os.environ['THRESHOLD'])
+    if os.environ.get('COOLDOWN'):
+        algo_cfg['cooldown'] = int(os.environ['COOLDOWN'])
+    
     return config
 
 

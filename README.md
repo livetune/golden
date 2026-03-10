@@ -163,17 +163,17 @@ golden/
 
 ## 配置说明
 
-| 配置项 | 说明 | 默认值 |
-|--------|------|--------|
-| api.interval | 采集间隔（秒） | 40 |
-| api.timeout | 请求超时（秒） | 10 |
-| api.retry_times | 请求重试次数 | 3 |
-| algorithm.threshold | 波动通知阈值（元/克） | 5 |
-| algorithm.cooldown | 通知冷却时间（秒） | 600 |
-| email.sender | 发件人 QQ 邮箱 | - |
-| email.password | QQ 邮箱授权码 | - |
-| email.receivers | 收件人邮箱列表 | - |
-| logging.level | 日志级别 | INFO |
+| 配置项 | 环境变量 | 说明 | 默认值 |
+|--------|---------|------|--------|
+| api.interval | - | 采集间隔（秒） | 40 |
+| api.timeout | - | 请求超时（秒） | 10 |
+| api.retry_times | - | 请求重试次数 | 3 |
+| algorithm.threshold | `THRESHOLD` | 波动通知阈值（元/克） | 5 |
+| algorithm.cooldown | `COOLDOWN` | 通知冷却时间（秒） | 600 |
+| email.sender | `EMAIL_SENDER` | 发件人 QQ 邮箱 | - |
+| email.password | `EMAIL_PASSWORD` | QQ 邮箱授权码 | - |
+| email.receivers | `EMAIL_RECEIVERS` | 收件人邮箱列表 | - |
+| logging.level | - | 日志级别 | INFO |
 
 ## 运行测试
 
